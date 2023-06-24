@@ -13,7 +13,7 @@ pipeline {
         
         choice(name: "datacent", choices: ["Bangalore", "HYD"], description: "Sample multi-choice parameter")
         
-        string(name: "maven build", defaultValue: "mvn install", trim: true, description: "Sample string parameter")
+        string(name: "mavenbuild", defaultValue: "mvn install", trim: true, description: "Sample string parameter")
         string(name: "dockerport", defaultValue: "8080", trim: true, description: "Sample string parameter")
         
     }
@@ -33,15 +33,15 @@ pipeline {
         stage("datacent") {
             steps {
                // echo "Build stage."
-                echo "Branch = $params.datacent"
+                echo "datacent = $params.datacent"
             }
         }
         
         stage("maven build") {
             steps {
                // echo "Build stage."
-                echo "Branch = $params.maven build"
-		    sh "$params.maven build"
+                echo "mavenbuild = $params.mavenbuild"
+		    sh "$params.mavenbuild"
             }
         }
         stage('Dockerfile') {
