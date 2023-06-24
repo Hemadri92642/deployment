@@ -67,7 +67,7 @@ pipeline {
         stage('dockert run') {
             steps {
 			
-                sh "docker run -dit --name $params.environment -p 80: $params.dockerport  $params.environment "
+                sh "docker run -dit --name $params.environment -p 80:$params.dockerport  $params.environment "
                //echo  "docker run -dit --name my-running-appdocker -p 80: $params.dockerport  tomcattes "
                  sleep 30 // seconds  
             }
