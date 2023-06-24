@@ -46,13 +46,13 @@ pipeline {
         }
         stage('Dockerfile') {
             steps {
-              //  sh "ls -ltra"
+              sh "ls -ltra"
               echo "Dockerfile"
             }
         }
          stage('docker build') {
             steps {
-               // sh "docker build . -t tomcattes"
+               sh "docker build . -t $params.environment"
                echo "docker build"
                 
             }
@@ -67,8 +67,8 @@ pipeline {
         stage('dockert run') {
             steps {
 			
-               // sh "docker run -dit --name my-running-appdocker -p 80: $params.dockerport  tomcattes "
-               echo  "docker run -dit --name my-running-appdocker -p 80: $params.dockerport  tomcattes "
+                sh "docker run -dit --name $params.environment -p 80: $params.dockerport  $params.environment "
+               //echo  "docker run -dit --name my-running-appdocker -p 80: $params.dockerport  tomcattes "
                  sleep 30 // seconds  
             }
         }
