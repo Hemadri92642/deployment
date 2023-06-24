@@ -7,7 +7,7 @@ pipeline {
     
         //password(name: "TEST_PASSWORD", defaultValue: "SECRET", description: "Sample password parameter")
         
-        choice(name: "environment", choices: ["production", "qa", "development"], description: "Sample multi-choice parameter")
+        choice(name: "environment", choices: ["production","release", "qa", "development"], description: "Sample multi-choice parameter")
         
         string(name: "branch", defaultValue: "development", trim: true, description: "Sample string parameter")
         
